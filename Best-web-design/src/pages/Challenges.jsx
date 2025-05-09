@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import './Challenges.css'; // Import CSS for animations
 
 function Challenges() {
     const [showMoreChallenges, setShowMoreChallenges] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
 
     const handleShowMoreChallenges = () => {
-        setShowMoreChallenges(!showMoreChallenges);
+        setShowMoreChallenges(true);
     };
 
     const toggleDarkMode = () => {
@@ -20,7 +18,7 @@ function Challenges() {
                 <h2 className="text-3xl font-bold text-center mb-4">Thử thách phổ biến</h2>
                 <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Khám phá các thử thách được nhiều người lựa chọn để cải thiện cuộc sống hàng ngày</p>
 
-                <TransitionGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {/* Existing challenges */}
                     <div className="challenge-card bg-white rounded-xl shadow-md overflow-hidden">
                         <div className="h-40 bg-primary flex items-center justify-center">
@@ -94,36 +92,40 @@ function Challenges() {
                             { color: 'bg-teal-500', title: 'Tập yoga', description: 'Dành 10 phút mỗi ngày để tập yoga.', participants: '600 người tham gia', spanStyle: 'bg-teal-100 bg-opacity-10 text-teal-500' }
             
                         ].map((challenge, index) => (
-                            <CSSTransition key={index} timeout={300} classNames="fade">
-                                <div className="challenge-card bg-white rounded-xl shadow-md overflow-hidden">
-                                    <div className={`h-40 ${challenge.color} flex items-center justify-center`}>
-                                        <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
-                                            <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
-                                        </svg>
+                            <div key={index} className="challenge-card bg-white rounded-xl shadow-md overflow-hidden">
+                                <div className={`h-40 ${challenge.color} flex items-center justify-center`}>
+                                    <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                                        <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                                    </svg>
+                                </div>
+                                <div className="p-6">
+                                    <div className="flex justify-between items-center mb-3">
+                                        <span className={`text-xs font-semibold px-3 py-1 rounded-full ${challenge.spanStyle}`}>Thử thách</span>
+                                        <span className="text-gray-500 text-sm">30 ngày</span>
                                     </div>
-                                    <div className="p-6">
-                                        <div className="flex justify-between items-center mb-3">
-                                            <span className={`text-xs font-semibold px-3 py-1 rounded-full ${challenge.spanStyle}`}>Thử thách</span>
-                                            <span className="text-gray-500 text-sm">30 ngày</span>
-                                        </div>
-                                        <h3 className="text-xl font-semibold mb-2">{challenge.title}</h3>
-                                        <p className="text-gray-600 mb-4">{challenge.description}</p>
-                                        <div className="flex justify-between items-center">
-                                            <span className="text-sm text-gray-500">{challenge.participants}</span>
-                                            <button className={`${challenge.color} text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-opacity-90 transition-colors`}>Bắt đầu</button>
-                                        </div>
+                                    <h3 className="text-xl font-semibold mb-2">{challenge.title}</h3>
+                                    <p className="text-gray-600 mb-4">{challenge.description}</p>
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-sm text-gray-500">{challenge.participants}</span>
+                                        <button className={`${challenge.color} text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-opacity-90 transition-colors`}>Bắt đầu</button>
                                     </div>
                                 </div>
-                            </CSSTransition>
+                            </div>
                         ))
                     )}
-                </TransitionGroup>
+                </div>
 
                 <div className="text-center mt-12">
-                    <button onClick={handleShowMoreChallenges} className="bg-white border border-gray-300 text-dark font-medium px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
-                        {showMoreChallenges ? 'Thu gọn' : 'Xem thêm thử thách'}
-                    </button>
+                    {!showMoreChallenges ? (
+                        <button onClick={handleShowMoreChallenges} className="bg-white border border-gray-300 text-dark font-medium px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
+                            Xem thêm thử thách
+                        </button>
+                    ) : (
+                        <button onClick={() => setShowMoreChallenges(false)} className="bg-white border border-gray-300 text-dark font-medium px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
+                            Thu gọn
+                        </button>
+                    )}
                 </div>
             </div>
         </section>
