@@ -76,7 +76,7 @@ function CreateChallenge() {
                             
                             <div className="space-y-4">
                                 <div>
-                                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Tên thử thách</label>
+                                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Tên thử thách</label>
                                     <input
                                         type="text"
                                         id="name"
@@ -89,7 +89,7 @@ function CreateChallenge() {
                                 </div>
                                 
                                 <div>
-                                    <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">Danh mục</label>
+                                    <label htmlFor="category" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Danh mục</label>
                                     <select
                                         id="category"
                                         name="category"
@@ -106,7 +106,7 @@ function CreateChallenge() {
                                 </div>
                                 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">Thời gian</label>
+                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Thời gian</label>
                                     <div className="flex space-x-4">
                                         <button
                                             type="button"
@@ -139,7 +139,7 @@ function CreateChallenge() {
                                 </div>
                                 
                                 <div>
-                                    <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">Mô tả ngắn</label>
+                                    <label htmlFor="description" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Mô tả ngắn</label>
                                     <textarea
                                         id="description"
                                         name="description"
@@ -152,7 +152,7 @@ function CreateChallenge() {
                                 </div>
                                 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">Nhắc nhở</label>
+                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nhắc nhở</label>
                                     <div className="flex items-center">
                                         <input
                                             type="checkbox"

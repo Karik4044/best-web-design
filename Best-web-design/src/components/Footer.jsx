@@ -65,7 +65,7 @@ function Footer() {
             </div>
             
             <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p className="text-gray-400 text-sm">© 2023 ChallengeMe. Tất cả quyền được bảo lưu.</p>
+                <p className="text-gray-400 text-sm">© 2025 ChallengeMe. Tất cả quyền được bảo lưu.</p>
                 <div className="flex space-x-6 mt-4 md:mt-0">
                     <a href="#" className="text-gray-400 hover:text-white text-sm">Điều khoản sử dụng</a>
                     <a href="#" className="text-gray-400 hover:text-white text-sm">Chính sách bảo mật</a>

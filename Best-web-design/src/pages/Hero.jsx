@@ -2,8 +2,21 @@ import React from 'react';
 
 function Hero() {
     return (
-        <section className="hero-gradient pt-24 pb-64 md:pt-32 md:pb-2">
-            <div className="container mx-auto px-4">
+        <section className="hero-gradient relative pt-24 pb-64 md:pt-32 md:pb-2">
+            {/* Background bubbles */}
+            <div className="absolute inset-0 overflow-hidden">
+                <div className="bg-gradient-to-br from-orange-400 to-pastel-yellow blur-xl w-full h-full absolute"></div>
+                {/* Bubble elements */}
+                <div className="absolute top-10 left-10 w-16 h-16 bg-white opacity-20 rounded-full animate-bubble"></div>
+                <div className="absolute top-20 right-20 w-24 h-24 bg-white opacity-10 rounded-full animate-bubble"></div>
+                <div className="absolute bottom-10 left-20 w-12 h-12 bg-white opacity-15 rounded-full animate-bubble"></div>
+                {/* Additional Bubble elements */}
+                <div className="absolute top-5 left-1/4 w-10 h-10 bg-white opacity-15 rounded-full animate-bubble"></div>
+                <div className="absolute top-1/3 right-1/3 w-14 h-14 bg-white opacity-10 rounded-full animate-bubble"></div>
+                <div className="absolute bottom-5 right-10 w-20 h-20 bg-white opacity-25 rounded-full animate-bubble"></div>
+                <div className="absolute bottom-1/4 left-1/3 w-8 h-8 bg-white opacity-20 rounded-full animate-bubble"></div>
+            </div>
+            <div className="container mx-auto px-4 relative z-10">
                 <div className="flex flex-col md:flex-row items-center">
                     <div className="md:w-1/2 text-white mb-10 md:mb-80 mt-0 md:mt-0 ml-20 md:ml-20">
                         <div className="flex flex-col ">
