@@ -3,7 +3,9 @@ body {
   scroll-behavior: smooth;
 }
 .hero-gradient {
+  text-decoration: none;
   background: linear-gradient(135deg, #FF7F50 0%, #FF9F7F 100%);
+  
 }
 .feature-card {
   transition: all 0.3s ease;

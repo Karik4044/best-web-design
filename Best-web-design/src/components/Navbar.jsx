@@ -1,7 +1,9 @@
 import React from 'react';
+
 function Navbar() {
-    return(
-        <nav className="bg-white shadow-md fixed w-full z-50">
+    return (
+        // <!-- Navigation -->
+    <nav className="bg-white shadow-md fixed w-full z-50">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
             <div className="flex items-center space-x-2">
                 <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
@@ -11,10 +13,22 @@ function Navbar() {
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
-                <a href="#features" className="text-dark hover:text-primary transition-colors">Tính năng</a>
-                <a href="#challenges" className="text-dark hover:text-primary transition-colors">Thử thách</a>
-                <a href="#progress" className="text-dark hover:text-primary transition-colors">Theo dõi</a>
-                <a href="#badges" className="text-dark hover:text-primary transition-colors">Huy hiệu</a>
+                <a href="#features" className="text-dark hover:text-primary transition-colors relative group">
+                    Tính năng
+                    <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#challenges" className="text-dark hover:text-primary transition-colors relative group">
+                    Thử thách
+                    <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#progress" className="text-dark hover:text-primary transition-colors relative group">
+                    Theo dõi
+                    <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#badges" className="text-dark hover:text-primary transition-colors relative group">
+                    Huy hiệu
+                    <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                </a>
                 <button className="theme-toggle p-2 rounded-full bg-gray-100 hover:bg-gray-200" onClick={() => toggleDarkMode()}>
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -30,21 +44,19 @@ function Navbar() {
                 </button>
             </div>
         </div>
-        
-        {/* Mobile menu */}
-        <div id="mobile-menu" className="hidden md:hidden bg-white pb-4 px-4">
-            <a href="#features" className="block py-2 text-dark hover:text-primary">Tính năng</a>
-            <a href="#challenges" className="block py-2 text-dark hover:text-primary">Thử thách</a>
-            <a href="#progress" className="block py-2 text-dark hover:text-primary">Theo dõi</a>
-            <a href="#badges" className="block py-2 text-dark hover:text-primary">Huy hiệu</a>
-            <button className="theme-toggle mt-2 p-2 rounded-full bg-gray-100 hover:bg-gray-200" onClick={() => toggleDarkMode()}>
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4">
+            <a href="#features" class="block py-2 text-dark hover:text-primary">Tính năng</a>
+            <a href="#challenges" class="block py-2 text-dark hover:text-primary">Thử thách</a>
+            <a href="#progress" class="block py-2 text-dark hover:text-primary">Theo dõi</a>
+            <a href="#badges" class="block py-2 text-dark hover:text-primary">Huy hiệu</a>
+            <button class="theme-toggle mt-2 p-2 rounded-full bg-gray-100 hover:bg-gray-200" onclick="toggleDarkMode()">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                 </svg>
             </button>
         </div>
     </nav>
-    )
+    );
 }
 
 export default Navbar;
