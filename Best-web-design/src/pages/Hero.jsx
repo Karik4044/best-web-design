@@ -1,5 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
+import RegisterModal from '../components/RegisterModal';
+import LoginModal from '../components/LoginModal';
+import { createPortal } from 'react-dom';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -25,6 +29,61 @@ const staggerContainer = {
 };
 
 function Hero() {
+  const navigate = useNavigate();
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Check login status on component mount and when localStorage changes
+  useEffect(() => {
+    const checkLoginStatus = () => {
+      const loginStatus = localStorage.getItem('isLoggedIn');
+      setIsLoggedIn(loginStatus === 'true');
+    };
+
+    // Check initial login status
+    checkLoginStatus();
+
+    // Listen for storage changes (for changes from other tabs)
+    window.addEventListener('storage', checkLoginStatus);
+
+    // Create a custom event listener for login status changes
+    const handleLoginChange = () => {
+      checkLoginStatus();
+    };
+
+    // Add event listener for custom login change event
+    window.addEventListener('loginStatusChange', handleLoginChange);
+
+    return () => {
+      window.removeEventListener('storage', checkLoginStatus);
+      window.removeEventListener('loginStatusChange', handleLoginChange);
+    };
+  }, []);
+
+  const handleStartClick = () => {
+    if (isLoggedIn) {
+      navigate('/challenges');
+    } else {
+      setIsRegisterModalOpen(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsRegisterModalOpen(false);
+    setIsLoginModalOpen(false);
+  };
+
+  const handleSwitchToLogin = () => {
+    setIsRegisterModalOpen(false);
+    setIsLoginModalOpen(true);
+  };
+
+  const handleSwitchToRegister = () => {
+    setIsLoginModalOpen(false);
+    setIsRegisterModalOpen(true);
+  };
+
   return (
     <section className="hero-gradient pt-24 md:pt-32">
       <div className="container mx-auto px-4">
@@ -44,15 +103,16 @@ function Hero() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="bg-white text-primary font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all"
+                    onClick={handleStartClick}
                   >
-                    Bắt đầu ngay
+                    {isLoggedIn ? 'Xem thử thách' : 'Bắt đầu ngay'}
                   </motion.button>
                   <motion.button 
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="bg-transparent border-2 border-white text-white font-semibold py-3 px-6 rounded-lg hover:bg-white hover:text-primary transition-all"
                   >
-                    Tìm hiểu thêm
+                    <Link to="/aboutus">Tìm hiểu thêm</Link>
                   </motion.button>
                 </div>
               </motion.div>
@@ -106,7 +166,8 @@ function Hero() {
                 
                 {/* App UI */}
                 <rect x="40" y="60" width="240" height="50" rx="10" fill="#FF7F50"/>
-                <text x="60" y="90" fill="white" fontFamily="Montserrat" fontSize="16" fontWeight="600">ChallengeMe</text>
+                <image href="/src/assets/be22adc6-9678-4cd0-8c8f-1416c25ec1ec_removalai_preview.png" x="55" y="73" width="24" height="24" />
+                <text x="85" y="90" fill="white" fontFamily="Montserrat" fontSize="16" fontWeight="600">Acend</text>
                 
                 <rect x="40" y="130" width="240" height="80" rx="10" fill="white" stroke="#E2E8F0" strokeWidth="2"/>
                 <text x="60" y="160" fill="#2D3748" fontFamily="Montserrat" fontSize="14" fontWeight="600">Tập thể dục mỗi ngày</text>
@@ -121,12 +182,48 @@ function Hero() {
                 <rect x="60" y="295" width="80" height="6" rx="3" fill="#3EB489"/>
                 
                 <circle cx="160" cy="430" r="30" fill="#FF7F50"/>
-                <text x="152" y="436" fill="white" fontFamily="Montserrat" fontSize="24" fontWeight="bold">+</text>
+                <text x="152" y="438" fill="white" fontFamily="Montserrat" fontSize="24" fontWeight="bold">+</text>
               </svg>
             </motion.div>
           </motion.div>
         </div>
       </div>
+
+      {isRegisterModalOpen && createPortal(
+        <AnimatePresence>
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <RegisterModal 
+              isOpen={isRegisterModalOpen}
+              onClose={handleCloseModal}
+              onSwitchToLogin={handleSwitchToLogin}
+            />
+          </motion.div>
+        </AnimatePresence>,
+        document.body
+      )}
+
+      {isLoginModalOpen && createPortal(
+        <AnimatePresence>
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <LoginModal 
+              isOpen={isLoginModalOpen}
+              onClose={handleCloseModal}
+              onSwitchToRegister={handleSwitchToRegister}
+            />
+          </motion.div>
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   );
 }

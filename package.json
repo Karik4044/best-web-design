@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "canvas-confetti": "^1.9.3",
+    "framer-motion": "^12.10.4"
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 function CreateChallenge() {
     const [formData, setFormData] = useState({
@@ -23,16 +24,62 @@ function CreateChallenge() {
         console.log('Form submitted:', formData);
     };
 
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+            opacity: 1, 
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: [0.6, -0.05, 0.01, 0.99]
+            }
+        }
+    };
+
+    const staggerContainer = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+                when: "beforeChildren"
+            }
+        }
+    };
+
     return (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white mt-10">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row items-center">
-                    <div className="md:w-1/2 mb-10 md:mb-0">
-                        <h2 className="text-3xl font-bold mb-6">Tạo thử thách cá nhân</h2>
-                        <p className="text-gray-600 mb-8">Tự tạo thử thách riêng phù hợp với mục tiêu và lịch trình của bạn. Thiết lập thời gian, nhắc nhở và theo dõi tiến trình một cách dễ dàng.</p>
+                    <motion.div 
+                        className="md:w-1/2 mb-10 md:mb-0"
+                        initial="hidden"
+                        animate="visible"
+                        variants={staggerContainer}
+                    >
+                        <motion.h2 
+                            className="text-3xl font-bold mb-6 ml-20"
+                            variants={fadeInUp}
+                        >
+                            Tạo thử thách cá nhân
+                        </motion.h2>
+                        <motion.p 
+                            className="text-gray-600 mb-8 ml-20"
+                            variants={fadeInUp}
+                        >
+                            Tự tạo thử thách riêng phù hợp với mục tiêu và lịch trình của bạn. Thiết lập thời gian, nhắc nhở và theo dõi tiến trình một cách dễ dàng.
+                        </motion.p>
                         
-                        <div className="space-y-6">
-                            <div className="flex items-center">
+                        <motion.div 
+                            className="space-y-6"
+                            variants={staggerContainer}
+                        >
+                            <motion.div 
+                                className="flex items-center ml-20"
+                                variants={fadeInUp}
+                                whileHover={{ x: 10 }}
+                                transition={{ duration: 0.2 }}
+                            >
                                 <div className="bg-primary bg-opacity-10 w-10 h-10 rounded-full flex items-center justify-center mr-4">
                                     <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd"></path>
@@ -42,9 +89,14 @@ function CreateChallenge() {
                                     <h3 className="font-semibold">Tùy chỉnh thử thách</h3>
                                     <p className="text-gray-600 text-sm">Đặt tên, mô tả và thời gian cho thử thách của bạn</p>
                                 </div>
-                            </div>
+                            </motion.div>
                             
-                            <div className="flex items-center">
+                            <motion.div 
+                                className="flex items-center ml-20"
+                                variants={fadeInUp}
+                                whileHover={{ x: 10 }}
+                                transition={{ duration: 0.2 }}
+                            >
                                 <div className="bg-primary bg-opacity-10 w-10 h-10 rounded-full flex items-center justify-center mr-4">
                                     <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"></path>
@@ -54,9 +106,14 @@ function CreateChallenge() {
                                     <h3 className="font-semibold">Cài đặt nhắc nhở</h3>
                                     <p className="text-gray-600 text-sm">Nhận thông báo hàng ngày để không bỏ lỡ thử thách</p>
                                 </div>
-                            </div>
+                            </motion.div>
                             
-                            <div className="flex items-center">
+                            <motion.div 
+                                className="flex items-center ml-20"
+                                variants={fadeInUp}
+                                whileHover={{ x: 10 }}
+                                transition={{ duration: 0.2 }}
+                            >
                                 <div className="bg-primary bg-opacity-10 w-10 h-10 rounded-full flex items-center justify-center mr-4">
                                     <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
@@ -66,16 +123,25 @@ function CreateChallenge() {
                                     <h3 className="font-semibold">Mời bạn bè tham gia</h3>
                                     <p className="text-gray-600 text-sm">Tạo thử thách nhóm và cùng nhau hoàn thành</p>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
                     
-                    <div className="md:w-1/2 flex justify-center">
-                        <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-lg p-6 w-full max-w-md">
+                    <motion.div 
+                        className="md:w-1/2 flex justify-center"
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                        <form onSubmit={handleSubmit} className="bg-white border-2 border-orange-300 rounded-xl shadow-lg p-6 w-full max-w-md">
                             <h3 className="text-xl font-semibold mb-6">Tạo thử thách mới</h3>
                             
                             <div className="space-y-4">
-                                <div>
+                                <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.3, delay: 0.3 }}
+                                >
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Tên thử thách</label>
                                     <input
                                         type="text"
@@ -86,9 +152,13 @@ function CreateChallenge() {
                                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
                                         placeholder="Ví dụ: Dậy sớm 6h mỗi ngày"
                                     />
-                                </div>
+                                </motion.div>
                                 
-                                <div>
+                                <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.3, delay: 0.4 }}
+                                >
                                     <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">Danh mục</label>
                                     <select
                                         id="category"
@@ -103,9 +173,13 @@ function CreateChallenge() {
                                         <option value="Học tập">Học tập</option>
                                         <option value="Khác">Khác</option>
                                     </select>
-                                </div>
+                                </motion.div>
                                 
-                                <div>
+                                <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.3, delay: 0.5 }}
+                                >
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Thời gian</label>
                                     <div className="flex space-x-4">
                                         <button
@@ -136,9 +210,13 @@ function CreateChallenge() {
                                             30 ngày
                                         </button>
                                     </div>
-                                </div>
+                                </motion.div>
                                 
-                                <div>
+                                <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.3, delay: 0.6 }}
+                                >
                                     <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">Mô tả ngắn</label>
                                     <textarea
                                         id="description"
@@ -149,9 +227,13 @@ function CreateChallenge() {
                                         rows="3"
                                         placeholder="Mô tả ngắn về thử thách của bạn"
                                     ></textarea>
-                                </div>
+                                </motion.div>
                                 
-                                <div>
+                                <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.3, delay: 0.7 }}
+                                >
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Nhắc nhở</label>
                                     <div className="flex items-center">
                                         <input
@@ -164,17 +246,22 @@ function CreateChallenge() {
                                         />
                                         <span className="ml-2 text-sm text-gray-600">Nhắc nhở hàng ngày</span>
                                     </div>
-                                </div>
+                                </motion.div>
                                 
-                                <button
+                                <motion.button
                                     type="submit"
                                     className="w-full bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors"
+                                    whileHover={{ scale: 1.03 }}
+                                    whileTap={{ scale: 0.97 }}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.3, delay: 0.8 }}
                                 >
                                     Tạo thử thách
-                                </button>
+                                </motion.button>
                             </div>
                         </form>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

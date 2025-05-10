@@ -7,11 +7,32 @@ import Features from './pages/Features';
 import Challenges from './pages/Challenges';
 import Progress from './pages/Progress';
 import Badge from './pages/Badge';
-import CreateChallenge from './pages/CreateChallenge';
+import CreateChallenge from './pages/alter/CreateChallenge';
 import GroupChallenge from './pages/GroupChallenge';
-import CTA from './pages/CTA';
+import PopupChallenges from './pages/alter/PopupChallenges';
+import CTA from './pages/alter/CTA';
 import Footer from './components/Footer';
-import AnimatedPage from './components/AnimatedPage';
+import AnimatedPage from './animaition/AnimatedPage';
+import LoginModal from './components/LoginModal';
+import RegisterModal from './components/RegisterModal';
+import Account from './pages/alter/Account';
+import Team from './pages/alter/team';
+import Aboutus from './pages/alter/aboutus';
+import Contact from './pages/alter/contact';
+import Help from './pages/alter/Help';
+import Clause from './pages/alter/clause';
+import Policy from './pages/alter/policy';
+import FAQ from './pages/alter/FAQ';
+// ScrollToTop component to scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
+  return null;
+}
 
 function AnimatedRoutes() {
     const location = useLocation();
@@ -26,7 +47,6 @@ function AnimatedRoutes() {
                             <Hero />
                             <Features />
                             <Challenges />
-                            <CreateChallenge />
                             <GroupChallenge />
                             <CTA />
                         </AnimatedPage>
@@ -47,6 +67,10 @@ function AnimatedRoutes() {
                             <Challenges />
                         </AnimatedPage>
                     } 
+                />
+                <Route 
+                    path="/challenges/:id" 
+                    element={<PopupChallenges />} 
                 />
                 <Route 
                     path="/progress" 
@@ -80,6 +104,48 @@ function AnimatedRoutes() {
                         </AnimatedPage>
                     } 
                 />
+                <Route path="/account" element={
+                    <AnimatedPage>
+                        <Account />
+                    </AnimatedPage>
+                } />
+                <Route path="/team" element={
+                    <AnimatedPage>
+                        <Team />
+                    </AnimatedPage>
+                } />
+                <Route path="/aboutus" element={
+                    <AnimatedPage>
+                        <Aboutus />
+                    </AnimatedPage>
+                } />
+                <Route path="/contact" element={
+                    <AnimatedPage>
+                        <Contact />
+                    </AnimatedPage>
+                } />
+                <Route path="/help" element={
+                    <AnimatedPage>
+                        <Help />
+                    </AnimatedPage>
+                } />
+                <Route path="/clause" element={
+                    <AnimatedPage>
+                        <Clause />
+                    </AnimatedPage>
+                } />
+                <Route path="/policy" element={
+                    <AnimatedPage>
+                        <Policy />
+                    </AnimatedPage>
+                } />
+                <Route path="/faq" element={
+                    <AnimatedPage>
+                        <FAQ />
+                    </AnimatedPage>
+                } />
+                <Route path="/login" element={<LoginModal />} />
+                <Route path="/register" element={<RegisterModal />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
         </AnimatePresence>
@@ -88,7 +154,8 @@ function AnimatedRoutes() {
 
 function App() {
     const [darkMode, setDarkMode] = useState(() => {
-        return localStorage.getItem('darkMode') === 'true';
+        const savedMode = localStorage.getItem('darkMode');
+        return savedMode === null ? window.matchMedia('(prefers-color-scheme: dark)').matches : savedMode === 'true';
     });
 
     useEffect(() => {
@@ -100,11 +167,14 @@ function App() {
         localStorage.setItem('darkMode', darkMode);
     }, [darkMode]);
 
-    const toggleDarkMode = () => setDarkMode((prev) => !prev);
+    const toggleDarkMode = () => {
+        setDarkMode(prev => !prev);
+    };
 
     return (
         <Router>
             <div className={`min-h-screen flex flex-col ${darkMode ? 'dark bg-dark' : 'bg-light'} transition-colors duration-300`}>
+                <ScrollToTop />
                 <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
                 <main className="flex-grow">
                     <AnimatedRoutes />

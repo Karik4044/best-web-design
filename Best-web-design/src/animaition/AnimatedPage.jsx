@@ -4,33 +4,33 @@ import { motion } from 'framer-motion';
 const pageVariants = {
     initial: {
         opacity: 0,
-        x: -50,
         scale: 0.95,
-        rotateY: -10,
-        filter: "blur(10px)"
+        y: 30,
+        clipPath: "inset(100% 50% 0% 50%)", // co lại theo chiều dọc + ẩn hai bên
+        filter: "blur(8px)"
     },
     in: {
         opacity: 1,
-        x: 0,
         scale: 1,
-        rotateY: 0,
+        y: 0,
+        clipPath: "inset(0% 0% 0% 0%)", // bung full
         filter: "blur(0px)",
         transition: {
-            duration: 0.6,
-            ease: [0.6, -0.05, 0.01, 0.99],
-            staggerChildren: 0.1,
-            when: "beforeChildren"
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1], // ease-out expo
+            when: "beforeChildren",
+            staggerChildren: 0.15
         }
     },
     out: {
         opacity: 0,
-        x: 50,
         scale: 0.95,
-        rotateY: 10,
-        filter: "blur(10px)",
+        y: -30,
+        clipPath: "inset(100% 50% 0% 50%)",
+        filter: "blur(6px)",
         transition: {
             duration: 0.5,
-            ease: [0.6, -0.05, 0.01, 0.99],
+            ease: [0.55, 0.085, 0.68, 0.53], // ease-in
             when: "afterChildren"
         }
     }
@@ -53,7 +53,7 @@ const contentVariants = {
         opacity: 0,
         y: -20,
         transition: {
-            duration: 0.5,
+            duration: 0.4,
             ease: [0.6, -0.05, 0.01, 0.99]
         }
     }
@@ -66,7 +66,7 @@ function AnimatedPage({ children }) {
             animate="in"
             exit="out"
             variants={pageVariants}
-            className="w-full"
+            className="w-full relative"
         >
             <motion.div
                 variants={contentVariants}
@@ -81,4 +81,4 @@ function AnimatedPage({ children }) {
     );
 }
 
-export default AnimatedPage; 
+export default AnimatedPage;
