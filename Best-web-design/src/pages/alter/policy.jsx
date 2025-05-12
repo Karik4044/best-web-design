@@ -66,7 +66,6 @@ function Policy() {
                                 backgroundSize: "300% auto"
                             }}
                         >
-                            
                             Chính sách bảo mật
                             <svg 
                                 className="w-10 h-10 inline-block mr-2 mb-1" 

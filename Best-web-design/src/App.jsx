@@ -23,6 +23,8 @@ import Help from './pages/alter/Help';
 import Clause from './pages/alter/clause';
 import Policy from './pages/alter/policy';
 import FAQ from './pages/alter/FAQ';
+import './parallax.css';
+
 // ScrollToTop component to scroll to top on route change
 function ScrollToTop() {
   const { pathname } = useLocation();

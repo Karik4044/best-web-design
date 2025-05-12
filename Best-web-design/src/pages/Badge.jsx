@@ -161,6 +161,7 @@ function Badge() {
                             </motion.div>
                             <h3 className="font-semibold text-center">7 ngày liên tiếp</h3>
                             <p className="text-xs text-gray-500 text-center">Tuần đầu tiên</p>
+                            <div className="mt-1 text-sm font-medium text-green-600">75% người dùng</div>
                         </motion.div>
 
                         <motion.div 
@@ -176,15 +177,17 @@ function Badge() {
                                     className="w-12 h-12 text-white" 
                                     fill="currentColor" 
                                     viewBox="0 0 20 20"
-                                    initial={{ rotate: 0 }}
-                                    animate={{ rotate: 360 }}
-                                    transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    transition={{ duration: 0.5 }}
                                 >
-                                    <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"></path>
+                                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                                    <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd"></path>
                                 </motion.svg>
                             </motion.div>
                             <h3 className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">14 ngày liên tiếp</h3>
                             <p className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 text-xs">Hai tuần kiên trì</p>
+                            <div className="mt-1 text-sm font-medium text-blue-600">45% người dùng</div>
                         </motion.div>
 
                         <motion.div 
@@ -251,6 +254,7 @@ function Badge() {
                                 </svg>
                             </div>
                             <p className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 text-xs">Thói quen đã hình thành</p>
+                            <div className="mt-1 text-sm font-medium text-purple-600">25% người dùng</div>
                         </motion.div>
                     </motion.div>
 
@@ -281,6 +285,7 @@ function Badge() {
                             </motion.div>
                             <h3 className="font-semibold text-center">Thử thách đầu tiên</h3>
                             <p className="text-xs text-gray-500 text-center">Hoàn thành 1 thử thách</p>
+                            <div className="mt-1 text-sm font-medium text-green-600">90% người dùng</div>
                         </motion.div>
 
                         <motion.div 
@@ -305,6 +310,7 @@ function Badge() {
                             </motion.div>
                             <h3 className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-red-600">Siêu sao</h3>
                             <p className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-red-600 text-xs">Hoàn thành 5 thử thách</p>
+                            <div className="mt-1 text-sm font-medium text-red-600">35% người dùng</div>
                         </motion.div>
 
                         <motion.div 
@@ -372,6 +378,7 @@ function Badge() {
                                 </svg>
                             </div>
                             <p className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-600 text-xs">Hoàn thành 10 thử thách</p>
+                            <div className="mt-1 text-sm font-medium text-indigo-600">15% người dùng</div>
                         </motion.div>
                     </motion.div>
                     
@@ -402,6 +409,7 @@ function Badge() {
                             </motion.div>
                             <h3 className="font-semibold text-center">Người truyền cảm hứng</h3>
                             <p className="text-xs text-gray-500 text-center">Chia sẻ 5 thành tựu</p>
+                            <div className="mt-1 text-sm font-medium text-pink-600">40% người dùng</div>
                         </motion.div>
 
                         <motion.div 
@@ -421,11 +429,260 @@ function Badge() {
                                     animate={{ scale: 1 }}
                                     transition={{ duration: 0.5, delay: 1.4 }}
                                 >
-                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                                        <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
                                 </motion.svg>
                             </motion.div>
                             <h3 className="font-semibold text-center">Người kết nối</h3>
                             <p className="text-xs text-gray-500 text-center">Kết nối với 10 người bạn</p>
+                            <div className="mt-1 text-sm font-medium text-amber-600">55% người dùng</div>
+                        </motion.div>
+
+                        <motion.div 
+                            className="badge flex flex-col items-center"
+                            variants={fadeInUp}
+                            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                        >
+                            <motion.div 
+                                className="w-24 h-24 rounded-full flex items-center justify-center shadow-lg mb-3 relative overflow-hidden"
+                                whileHover={{ boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                                style={{
+                                    background: "linear-gradient(-45deg, #A8EDEA, #FED6E3, #A8EDEA, #FED6E3)",
+                                    backgroundSize: "400% 400%"
+                                }}
+                                animate={{
+                                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                                }}
+                                transition={{
+                                    duration: 6,
+                                    ease: "easeInOut",
+                                    repeat: Infinity,
+                                }}
+                            >
+                                {/* Pastel sparkle effect */}
+                                <motion.div 
+                                    className="absolute inset-0"
+                                    style={{
+                                        background: "radial-gradient(circle, rgba(255,255,255,0.9) 5%, transparent 10%)",
+                                        backgroundSize: "10px 10px"
+                                    }}
+                                    animate={{
+                                        opacity: [0, 1, 0],
+                                        scale: [0.9, 1.1, 0.9],
+                                        rotate: [0, 180, 360],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                    }}
+                                />
+                                <motion.svg 
+                                    className="w-12 h-12 text-white relative z-10" 
+                                    fill="currentColor" 
+                                    viewBox="0 0 20 20"
+                                    initial={{ scale: 0 }}
+                                    animate={{ 
+                                        scale: [1, 1.2, 1],
+                                        rotate: [0, 5, -5, 0],
+                                        filter: ["drop-shadow(0 0 5px rgba(255,255,255,0.7))", "drop-shadow(0 0 15px rgba(255,255,255,0.9))", "drop-shadow(0 0 5px rgba(255,255,255,0.7))"]
+                                    }}
+                                    transition={{ 
+                                        scale: { duration: 1.5, repeat: Infinity },
+                                        rotate: { duration: 2, repeat: Infinity },
+                                        filter: { duration: 1.5, repeat: Infinity }
+                                    }}
+                                >
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                                </motion.svg>
+                            </motion.div>
+                            <div className="flex items-center justify-center">
+                                <h3 className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400">Tâm điểm vũ trụ</h3>
+                                <motion.svg 
+                                    className="w-5 h-5 ml-1 text-blue-500" 
+                                    fill="currentColor" 
+                                    viewBox="0 0 24 24"
+                                    animate={{
+                                        scale: [1, 1.2, 1],
+                                        rotate: [0, 10, -10, 0],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                    }}
+                                >
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                                </motion.svg>
+                            </div>
+                            <p className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 text-xs">Kết nối với 20 người bạn</p>
+                            <div className="mt-1 text-sm font-medium text-blue-600">25% người dùng</div>
+                        </motion.div>
+
+                    </motion.div>
+
+
+
+                    {/* Row 7 - Event Achievements */}
+                    <motion.div 
+                        className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full"
+                        variants={staggerContainer}
+                    >
+                        <motion.div 
+                            className="badge flex flex-col items-center"
+                            variants={fadeInUp}
+                            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                        >
+                            <motion.div 
+                                className="w-24 h-24 rounded-full flex items-center justify-center shadow-lg mb-3 relative overflow-hidden"
+                                whileHover={{ boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                                style={{
+                                    background: "linear-gradient(-45deg, #FF6B6B, #4ECDC4, #FF6B6B, #4ECDC4)",
+                                    backgroundSize: "400% 400%"
+                                }}
+                                animate={{
+                                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                                }}
+                                transition={{
+                                    duration: 4,
+                                    ease: "easeInOut",
+                                    repeat: Infinity,
+                                }}
+                            >
+                                {/* Rainbow sparkle effect */}
+                                <motion.div 
+                                    className="absolute inset-0"
+                                    style={{
+                                        background: "radial-gradient(circle, rgba(255,255,255,0.9) 5%, transparent 10%)",
+                                        backgroundSize: "15px 15px"
+                                    }}
+                                    animate={{
+                                        opacity: [0, 1, 0],
+                                        scale: [0.9, 1.1, 0.9],
+                                        rotate: [0, 180, 360],
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                    }}
+                                />
+                                <motion.svg 
+                                    className="w-12 h-12 text-white relative z-10" 
+                                    fill="currentColor" 
+                                    viewBox="0 0 20 20"
+                                    initial={{ scale: 0 }}
+                                    animate={{ 
+                                        scale: [1, 1.2, 1],
+                                        rotate: [0, 10, -10, 0],
+                                        filter: ["drop-shadow(0 0 5px rgba(255,255,255,0.7))", "drop-shadow(0 0 15px rgba(255,255,255,0.9))", "drop-shadow(0 0 5px rgba(255,255,255,0.7))"]
+                                    }}
+                                    transition={{ 
+                                        scale: { duration: 2, repeat: Infinity },
+                                        rotate: { duration: 3, repeat: Infinity },
+                                        filter: { duration: 2, repeat: Infinity }
+                                    }}
+                                >
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                </motion.svg>
+                            </motion.div>
+                            <div className="flex items-center justify-center">
+                                <h3 className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-green-400 to-red-400">Người tham gia sự kiện</h3>
+                                <motion.svg 
+                                    className="w-5 h-5 ml-1 text-yellow-500" 
+                                    fill="currentColor" 
+                                    viewBox="0 0 24 24"
+                                    animate={{
+                                        scale: [1, 1.2, 1],
+                                        rotate: [0, 10, -10, 0],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                    }}
+                                >
+                                    <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
+                                </motion.svg>
+                            </div>
+                            <p className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-green-400 to-red-400 text-xs">Tham gia 3 sự kiện đặc biệt</p>
+                            <div className="mt-1 text-sm font-medium text-red-600">20% người dùng</div>
+                        </motion.div>
+
+                        <motion.div 
+                            className="badge flex flex-col items-center"
+                            variants={fadeInUp}
+                            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                        >
+                            <motion.div 
+                                className="w-24 h-24 rounded-full flex items-center justify-center shadow-lg mb-3 relative overflow-hidden"
+                                whileHover={{ boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                                style={{
+                                    background: "linear-gradient(-45deg, #FF9A8B, #FF6A88, #FF99AC, #FF9A8B)",
+                                    backgroundSize: "400% 400%"
+                                }}
+                                animate={{
+                                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                                }}
+                                transition={{
+                                    duration: 5,
+                                    ease: "easeInOut",
+                                    repeat: Infinity,
+                                }}
+                            >
+                                {/* Heart sparkle effect */}
+                                <motion.div 
+                                    className="absolute inset-0"
+                                    style={{
+                                        background: "radial-gradient(circle, rgba(255,255,255,0.9) 5%, transparent 10%)",
+                                        backgroundSize: "12px 12px"
+                                    }}
+                                    animate={{
+                                        opacity: [0, 1, 0],
+                                        scale: [0.9, 1.1, 0.9],
+                                        rotate: [0, 180, 360],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                    }}
+                                />
+                                <motion.svg 
+                                    className="w-12 h-12 text-white relative z-10" 
+                                    fill="currentColor" 
+                                    viewBox="0 0 20 20"
+                                    initial={{ scale: 0 }}
+                                    animate={{ 
+                                        scale: [1, 1.2, 1],
+                                        rotate: [0, 5, -5, 0],
+                                        filter: ["drop-shadow(0 0 5px rgba(255,255,255,0.7))", "drop-shadow(0 0 15px rgba(255,255,255,0.9))", "drop-shadow(0 0 5px rgba(255,255,255,0.7))"]
+                                    }}
+                                    transition={{ 
+                                        scale: { duration: 1.5, repeat: Infinity },
+                                        rotate: { duration: 2, repeat: Infinity },
+                                        filter: { duration: 1.5, repeat: Infinity }
+                                    }}
+                                >
+                                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd"></path>
+                                </motion.svg>
+                            </motion.div>
+                            <div className="flex items-center justify-center">
+                                <h3 className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-red-400 to-pink-400">Admin</h3>
+                                <motion.svg 
+                                    className="w-5 h-5 ml-1 text-pink-500" 
+                                    fill="currentColor" 
+                                    viewBox="0 0 24 24"
+                                    animate={{
+                                        scale: [1, 1.2, 1],
+                                        y: [0, -2, 0],
+                                        filter: ["drop-shadow(0 0 2px rgba(236,72,153,0.7))", "drop-shadow(0 0 4px rgba(236,72,153,0.9))", "drop-shadow(0 0 2px rgba(236,72,153,0.7))"]
+                                    }}
+                                    transition={{
+                                        duration: 1.5,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                >
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                </motion.svg>
+                            </div>
+                            <p className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-red-400 to-pink-400 text-xs">Bạn là Quản trị viên</p>
+                            <div className="mt-1 text-sm font-medium text-pink-600">0,01% người dùng</div>
                         </motion.div>
 
                         <motion.div 
@@ -491,6 +748,312 @@ function Badge() {
                                 </svg>
                             </div>
                             <p className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-green-500 text-xs">Hoàn thành thử thách trước hạn</p>
+                            <div className="mt-1 text-sm font-medium text-teal-600">30% người dùng</div>
+                        </motion.div>
+
+                    </motion.div>
+
+                    {/* Row 8 - Special Event Achievements */}
+                    <motion.div 
+                        className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full"
+                        variants={staggerContainer}
+                    >
+                        <motion.div 
+                            className="badge flex flex-col items-center"
+                            variants={fadeInUp}
+                            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                        >
+                            <motion.div 
+                                className="w-24 h-24 rounded-full flex items-center justify-center shadow-lg mb-3 relative overflow-hidden"
+                                whileHover={{ boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                                style={{
+                                    background: "linear-gradient(-45deg, #FFD700, #FFA500, #FFD700, #FFA500, #FFD700)",
+                                    backgroundSize: "400% 400%"
+                                }}
+                                animate={{
+                                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    ease: "easeInOut",
+                                    repeat: Infinity,
+                                }}
+                            >
+                                {/* Golden sparkle effect */}
+                                <motion.div 
+                                    className="absolute inset-0"
+                                    style={{
+                                        background: "radial-gradient(circle, rgba(255,215,0,0.9) 5%, transparent 10%)",
+                                        backgroundSize: "15px 15px"
+                                    }}
+                                    animate={{
+                                        opacity: [0, 1, 0],
+                                        scale: [0.9, 1.1, 0.9],
+                                        rotate: [0, 180, 360],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                    }}
+                                />
+                                <motion.div 
+                                    className="absolute inset-0"
+                                    style={{
+                                        background: "radial-gradient(circle, rgba(255,165,0,0.9) 5%, transparent 10%)",
+                                        backgroundSize: "20px 20px"
+                                    }}
+                                    animate={{
+                                        opacity: [0, 1, 0],
+                                        scale: [1.1, 0.9, 1.1],
+                                        rotate: [360, 180, 0],
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                    }}
+                                />
+                                <motion.svg 
+                                    className="w-12 h-12 text-white relative z-10" 
+                                    fill="currentColor" 
+                                    viewBox="0 0 20 20"
+                                    initial={{ scale: 0 }}
+                                    animate={{ 
+                                        scale: [1, 1.3, 1],
+                                        rotate: [0, 10, -10, 0],
+                                        filter: [
+                                            "drop-shadow(0 0 5px rgba(255,215,0,0.7))",
+                                            "drop-shadow(0 0 15px rgba(255,215,0,0.9))",
+                                            "drop-shadow(0 0 5px rgba(255,215,0,0.7))"
+                                        ]
+                                    }}
+                                    transition={{ 
+                                        scale: { duration: 1.5, repeat: Infinity },
+                                        rotate: { duration: 2, repeat: Infinity },
+                                        filter: { duration: 1.5, repeat: Infinity }
+                                    }}
+                                >
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                </motion.svg>
+                            </motion.div>
+                            <div className="flex items-center justify-center">
+                                <h3 className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600">Người xuất sắc</h3>
+                                <motion.svg 
+                                    className="w-5 h-5 ml-1 text-yellow-500" 
+                                    fill="currentColor" 
+                                    viewBox="0 0 24 24"
+                                    animate={{
+                                        scale: [1, 1.2, 1],
+                                        rotate: [0, 10, -10, 0],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                    }}
+                                >
+                                    <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
+                                </motion.svg>
+                            </div>
+                            <p className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-xs">Duy trì chuỗi thử thách</p>
+                            <div className="mt-1 text-sm font-medium text-yellow-600">10% người dùng</div>
+                        </motion.div>
+
+                        <motion.div 
+                            className="badge flex flex-col items-center"
+                            variants={fadeInUp}
+                            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                        >
+                            <motion.div 
+                                className="w-24 h-24 rounded-full flex items-center justify-center shadow-lg mb-3 relative overflow-hidden"
+                                whileHover={{ boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                                style={{
+                                    background: "linear-gradient(-45deg, #FF1493, #FF69B4, #FF1493, #FF69B4, #FF1493)",
+                                    backgroundSize: "400% 400%"
+                                }}
+                                animate={{
+                                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    ease: "easeInOut",
+                                    repeat: Infinity,
+                                }}
+                            >
+                                {/* Pink sparkle effect */}
+                                <motion.div 
+                                    className="absolute inset-0"
+                                    style={{
+                                        background: "radial-gradient(circle, rgba(255,20,147,0.9) 5%, transparent 10%)",
+                                        backgroundSize: "12px 12px"
+                                    }}
+                                    animate={{
+                                        opacity: [0, 1, 0],
+                                        scale: [0.9, 1.1, 0.9],
+                                        rotate: [0, 180, 360],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                    }}
+                                />
+                                <motion.div 
+                                    className="absolute inset-0"
+                                    style={{
+                                        background: "radial-gradient(circle, rgba(255,105,180,0.9) 5%, transparent 10%)",
+                                        backgroundSize: "18px 18px"
+                                    }}
+                                    animate={{
+                                        opacity: [0, 1, 0],
+                                        scale: [1.1, 0.9, 1.1],
+                                        rotate: [360, 180, 0],
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                    }}
+                                />
+                                <motion.svg 
+                                    className="w-12 h-12 text-white relative z-10" 
+                                    fill="currentColor" 
+                                    viewBox="0 0 20 20"
+                                    initial={{ scale: 0 }}
+                                    animate={{ 
+                                        scale: [1, 1.3, 1],
+                                        rotate: [0, 10, -10, 0],
+                                        filter: [
+                                            "drop-shadow(0 0 5px rgba(255,20,147,0.7))",
+                                            "drop-shadow(0 0 15px rgba(255,20,147,0.9))",
+                                            "drop-shadow(0 0 5px rgba(255,20,147,0.7))"
+                                        ]
+                                    }}
+                                    transition={{ 
+                                        scale: { duration: 1.5, repeat: Infinity },
+                                        rotate: { duration: 2, repeat: Infinity },
+                                        filter: { duration: 1.5, repeat: Infinity }
+                                    }}
+                                >
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                                </motion.svg>
+                            </motion.div>
+                            <div className="flex items-center justify-center">
+                                <h3 className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-400 to-pink-400">Người sáng tạo</h3>
+                                <motion.svg 
+                                    className="w-5 h-5 ml-1 text-pink-500" 
+                                    fill="currentColor" 
+                                    viewBox="0 0 24 24"
+                                    animate={{
+                                        scale: [1, 1.2, 1],
+                                        rotate: [0, 10, -10, 0],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                    }}
+                                >
+                                    <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
+                                </motion.svg>
+                            </div>
+                            <p className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-400 to-pink-400 text-xs">Tạo 10 Thử thách</p>
+                            <div className="mt-1 text-sm font-medium text-pink-600">8% người dùng</div>
+                        </motion.div>
+
+                        <motion.div 
+                            className="badge flex flex-col items-center"
+                            variants={fadeInUp}
+                            whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                        >
+                            <motion.div 
+                                className="w-24 h-24 rounded-full flex items-center justify-center shadow-lg mb-3 relative overflow-hidden"
+                                whileHover={{ boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                                style={{
+                                    background: "linear-gradient(-45deg, #00c6ff, #0072ff, #00c6ff, #0072ff, #00c6ff)",
+                                    backgroundSize: "400% 400%"
+                                }}
+                                animate={{
+                                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    ease: "easeInOut",
+                                    repeat: Infinity,
+                                }}
+                            >
+                                {/* Blue sparkle effect */}
+                                <motion.div 
+                                    className="absolute inset-0"
+                                    style={{
+                                        background: "radial-gradient(circle, rgba(0,198,255,0.9) 5%, transparent 10%)",
+                                        backgroundSize: "10px 10px"
+                                    }}
+                                    animate={{
+                                        opacity: [0, 1, 0],
+                                        scale: [0.9, 1.1, 0.9],
+                                        rotate: [0, 180, 360],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                    }}
+                                />
+                                <motion.div 
+                                    className="absolute inset-0"
+                                    style={{
+                                        background: "radial-gradient(circle, rgba(0,114,255,0.9) 5%, transparent 10%)",
+                                        backgroundSize: "15px 15px"
+                                    }}
+                                    animate={{
+                                        opacity: [0, 1, 0],
+                                        scale: [1.1, 0.9, 1.1],
+                                        rotate: [360, 180, 0],
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                    }}
+                                />
+                                <motion.svg 
+                                    className="w-12 h-12 text-white relative z-10" 
+                                    fill="currentColor" 
+                                    viewBox="0 0 20 20"
+                                    initial={{ scale: 0 }}
+                                    animate={{ 
+                                        scale: [1, 1.3, 1],
+                                        rotate: [0, 10, -10, 0],
+                                        filter: [
+                                            "drop-shadow(0 0 5px rgba(0,198,255,0.7))",
+                                            "drop-shadow(0 0 15px rgba(0,198,255,0.9))",
+                                            "drop-shadow(0 0 5px rgba(0,198,255,0.7))"
+                                        ]
+                                    }}
+                                    transition={{ 
+                                        scale: { duration: 1.5, repeat: Infinity },
+                                        rotate: { duration: 2, repeat: Infinity },
+                                        filter: { duration: 1.5, repeat: Infinity }
+                                    }}
+                                >
+                                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                                    <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd"></path>
+                                </motion.svg>
+                            </motion.div>
+                            <div className="flex items-center justify-center">
+                                <h3 className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400">Người tiên phong</h3>
+                                <motion.svg 
+                                    className="w-5 h-5 ml-1 text-blue-500" 
+                                    fill="currentColor" 
+                                    viewBox="0 0 24 24"
+                                    animate={{
+                                        scale: [1, 1.2, 1],
+                                        rotate: [0, 10, -10, 0],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                    }}
+                                >
+                                    <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
+                                </motion.svg>
+                            </div>
+                            <p className="font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 text-xs">Sử dụng bản thử nghiệm</p>
+                            <div className="mt-1 text-sm font-medium text-blue-600">3% người dùng</div>
                         </motion.div>
                     </motion.div>
                 </motion.div>

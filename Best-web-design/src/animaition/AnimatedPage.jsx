@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const pageVariants = {
     initial: {
@@ -59,18 +59,18 @@ const contentVariants = {
     }
 };
 
-function AnimatedPage({ children }) {
+function AnimatedPage({ children, className = "" }) {
     return (
         <motion.div
             initial="initial"
             animate="in"
             exit="out"
             variants={pageVariants}
-            className="w-full relative"
+            className={`w-full relative animated-page ${className}`}
         >
             <motion.div
                 variants={contentVariants}
-                className="w-full"
+                className="w-full animated-content"
                 initial="initial"
                 animate="in"
                 exit="out"
