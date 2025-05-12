@@ -24,7 +24,7 @@ import Clause from './pages/alter/clause';
 import Policy from './pages/alter/policy';
 import FAQ from './pages/alter/FAQ';
 import './parallax.css';
-
+import Setting from './pages/alter/setting';
 // ScrollToTop component to scroll to top on route change
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -146,6 +146,11 @@ function AnimatedRoutes() {
                         <FAQ />
                     </AnimatedPage>
                 } />
+                <Route path="/setting" element={
+                    <AnimatedPage>
+                        <Setting />
+                    </AnimatedPage>
+                } />
                 <Route path="/login" element={<LoginModal />} />
                 <Route path="/register" element={<RegisterModal />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
@@ -175,7 +180,11 @@ function App() {
 
     return (
         <Router>
-            <div className={`min-h-screen flex flex-col ${darkMode ? 'dark bg-dark' : 'bg-light'} transition-colors duration-300`}>
+            <div className={`min-h-screen flex flex-col ${
+                darkMode 
+                    ? 'bg-dark-bg-primary text-dark-text-primary' 
+                    : 'bg-light-bg-primary text-light-text-primary'
+            } transition-colors duration-300`}>
                 <ScrollToTop />
                 <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
                 <main className="flex-grow">

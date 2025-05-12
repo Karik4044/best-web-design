@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { BadgeIcons } from '../../data/badgeIcons';
 import defaultAvatar from '../../assets/fa65411d6c03730a8cb16f0cbf713e0e.jpg';
-
+import { Link } from 'react-router-dom';
 
 // Helper: Map badge id to icon component from Badge.jsx
 // You may need to export the icon components from Badge.jsx for this to work.
@@ -20,7 +20,34 @@ function Account() {
         username: 'John Doe',
         email: 'john@example.com',
         avatar: defaultAvatar,
-        progress: 75,
+        progress: {
+            completed: 15,
+            total: 20,
+            streak: 7,
+            level: 3
+        },
+        activeChallenges: [
+            {
+                id: 1,
+                title: "30 ngày chạy bộ",
+                category: "Sức khỏe",
+                progress: 60,
+                daysLeft: 12,
+                color: "primary",
+                bgColor: "primary",
+                textColor: "white"
+            },
+            {
+                id: 2,
+                title: "Học tiếng Anh mỗi ngày",
+                category: "Học tập",
+                progress: 30,
+                daysLeft: 21,
+                color: "accent",
+                bgColor: "accent",
+                textColor: "white"
+            }
+        ],
         badges: [
             {
                 id: 'connector',
@@ -84,7 +111,6 @@ function Account() {
         setIsEditing(false);
     };
 
-
     return (
         <div className="min-h-screen bg-gray-50 pt-20">
             <div className="container mx-auto px-4 py-8">
@@ -93,92 +119,182 @@ function Account() {
                     animate={{ opacity: 1, y: 0 }}
                     className="max-w-4xl mx-auto"
                 >
-                    {/* Profile Section */}
-                    <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-                        <div className="flex items-center space-x-6">
-                            <div className="relative">
-                                <img 
-                                    src={user.avatar} 
-                                    alt="Profile" 
-                                    className="w-32 h-32 rounded-full object-cover border-4 border-primary"
-                                />
-                                <label 
-                                    htmlFor="avatar-upload" 
-                                    className="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full cursor-pointer hover:bg-primary-dark transition-colors"
-                                >
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    </svg>
-                                </label>
-                                <input 
-                                    id="avatar-upload" 
-                                    type="file" 
-                                    accept="image/*" 
-                                    className="hidden" 
-                                    onChange={handleAvatarChange}
-                                />
-                            </div>
-                            <div className="flex-1">
-                                {isEditing ? (
-                                    <div className="flex items-center space-x-2">
-                                        <input
-                                            type="text"
-                                            value={newUsername}
-                                            onChange={(e) => setNewUsername(e.target.value)}
-                                            className="text-2xl font-bold border-b-2 border-primary focus:outline-none"
-                                        />
-                                        <button 
-                                            onClick={handleUsernameUpdate}
-                                            className="text-green-500 hover:text-green-600"
-                                        >
-                                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                ) : (
-                                    <div className="flex items-center space-x-2">
-                                        <h1 className="text-2xl font-bold">{user.username}</h1>
-                                        <button 
-                                            onClick={() => setIsEditing(true)}
-                                            className="text-gray-500 hover:text-gray-600"
-                                        >
-                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                )}
-                                <p className="text-gray-600">{user.email}</p>
+                    {/* Combined Cover and Profile Section */}
+                    <div className="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                        {/* Gradient Cover */}
+                        <div className="relative h-48 bg-gradient-to-r from-orange-400 via-amber-500 to-yellow-400">
+                            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"></div>
+                        </div>
+
+                        {/* Profile Info */}
+                        <div className="px-6 pb-6">
+                            <div className="flex items-end -mt-16 mb-4">
+                                <div className="relative">
+                                    <img 
+                                        src={user.avatar} 
+                                        alt="Profile" 
+                                        className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
+                                    />
+                                    <label 
+                                        htmlFor="avatar-upload" 
+                                        className="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full cursor-pointer hover:bg-primary-dark transition-colors"
+                                    >
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                    </label>
+                                    <input 
+                                        id="avatar-upload" 
+                                        type="file" 
+                                        accept="image/*" 
+                                        className="hidden" 
+                                        onChange={handleAvatarChange}
+                                    />
+                                </div>
+                                <div className="ml-6 flex-1">
+                                    {isEditing ? (
+                                        <div className="flex items-center space-x-2">
+                                            <input
+                                                type="text"
+                                                value={newUsername}
+                                                onChange={(e) => setNewUsername(e.target.value)}
+                                                className="text-2xl font-bold border-b-2 border-primary focus:outline-none"
+                                            />
+                                            <button 
+                                                onClick={handleUsernameUpdate}
+                                                className="text-green-500 hover:text-green-600"
+                                            >
+                                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <div className="flex items-center space-x-2">
+                                            <h1 className="text-2xl font-bold">{user.username}</h1>
+                                            <button 
+                                                onClick={() => setIsEditing(true)}
+                                                className="text-gray-500 hover:text-gray-600"
+                                            >
+                                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    )}
+                                    <p className="text-gray-600">{user.email}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Progress Section */}
-                    <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-                        <h2 className="text-xl font-bold mb-4">Tiến độ của bạn</h2>
-                        <div className="relative pt-1">
-                            <div className="flex mb-2 items-center justify-between">
-                                <div>
-                                    <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-primary bg-primary-light">
-                                        Hoàn thành
-                                    </span>
+                    <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 className="text-2xl font-bold mb-8 text-gray-800 flex items-center">
+                            <svg className="w-6 h-6 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                            Tiến độ của bạn
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {/* Main Progress */}
+                            <div className="space-y-6">
+                                <div className="flex justify-between items-center">
+                                    <span className="text-gray-600 font-medium">Hoàn thành thử thách</span>
+                                    <span className="font-bold text-primary text-lg">{user.progress.completed}/{user.progress.total}</span>
                                 </div>
-                                <div className="text-right">
-                                    <span className="text-xs font-semibold inline-block text-primary">
-                                        {user.progress}%
-                                    </span>
+                                <div className="relative pt-1">
+                                    <div className="overflow-hidden h-4 mb-4 text-xs flex rounded-full bg-orange-100 border-2 border-orange-200">
+                                        <motion.div
+                                            initial={{ width: 0 }}
+                                            animate={{ width: `${(user.progress.completed / user.progress.total) * 100}%` }}
+                                            transition={{ duration: 1, ease: "easeOut" }}
+                                            className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gradient-to-r from-orange-500 via-orange-400 to-amber-400 relative"
+                                        >
+                                            <div className="absolute inset-0 bg-white/20"></div>
+                                            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-1/2 bg-white/40 rounded-full"></div>
+                                        </motion.div>
+                                    </div>
+                                    <div className="flex justify-between text-xs text-gray-500">
+                                        <span>Bắt đầu</span>
+                                        <span>Hoàn thành</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-primary-light">
+
+                            {/* Streak and Level */}
+                            <div className="grid grid-cols-2 gap-6">
+                                <motion.div 
+                                    className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300"
+                                    whileHover={{ scale: 1.02 }}
+                                >
+                                    <div className="text-3xl font-bold text-orange-500 mb-2">{user.progress.streak}</div>
+                                    <div className="text-sm text-orange-600 font-medium">Ngày liên tiếp</div>
+                                    <div className="mt-2 text-xs text-orange-500/70">🔥 Giữ vững phong độ!</div>
+                                </motion.div>
+                                <motion.div 
+                                    className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300"
+                                    whileHover={{ scale: 1.02 }}
+                                >
+                                    <div className="text-3xl font-bold text-blue-500 mb-2">Cấp {user.progress.level}</div>
+                                    <div className="text-sm text-blue-600 font-medium">Trình độ hiện tại</div>
+                                    <div className="mt-2 text-xs text-blue-500/70">⭐ Tiếp tục phát triển!</div>
+                                </motion.div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Active Challenges Section */}
+                    <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 className="text-2xl font-bold mb-8 text-gray-800 flex items-center">
+                            <svg className="w-6 h-6 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
+                            Thử thách đang tham gia
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {user.activeChallenges.map((challenge) => (
                                 <motion.div
-                                    initial={{ width: 0 }}
-                                    animate={{ width: `${user.progress}%` }}
-                                    transition={{ duration: 1, ease: "easeOut" }}
-                                    className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary"
-                                />
-                            </div>
+                                    key={challenge.id}
+                                    className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all duration-300"
+                                    whileHover={{ scale: 1.02 }}
+                                >
+                                    <div className="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h3 className="text-lg font-semibold text-gray-800 mb-1">{challenge.title}</h3>
+                                            <span className={`text-sm px-3 py-1 rounded-full bg-${challenge.bgColor} bg-opacity-10 text-${challenge.color}`}>
+                                                {challenge.category}
+                                            </span>
+                                        </div>
+                                        <span className={`text-sm font-medium text-${challenge.color}`}>Còn {challenge.daysLeft} ngày</span>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <div className="flex justify-between text-sm text-gray-600">
+                                            <span>Tiến độ</span>
+                                            <span>{challenge.progress}%</span>
+                                        </div>
+                                        <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                            <motion.div
+                                                initial={{ width: 0 }}
+                                                animate={{ width: `${challenge.progress}%` }}
+                                                transition={{ duration: 1, ease: "easeOut" }}
+                                                className={`h-full bg-${challenge.color}`}
+                                            />
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                        <div className="mt-6 text-center">
+                            <motion.button
+                                className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={() => navigate('/challenges')}
+                            >
+                                <Link to="/challenges">Xem tất cả thử thách</Link>
+                            </motion.button>
                         </div>
                     </div>
 
