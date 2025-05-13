@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../context/UserContext';
 
 function CreateChallenge() {
+    const navigate = useNavigate();
+    const { addChallenge } = useUser();
     const [formData, setFormData] = useState({
         name: '',
         category: 'Sức khỏe',
@@ -20,8 +24,43 @@ function CreateChallenge() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission here
-        console.log('Form submitted:', formData);
+        
+        // Tạo thử thách mới
+        const newChallenge = {
+            id: Date.now(),
+            title: formData.name,
+            category: formData.category,
+            duration: `${formData.duration} ngày`,
+            description: formData.description,
+            participants: '0 người tham gia',
+            participantsCount: 0,
+            color: getCategoryColor(formData.category),
+            bgColor: getCategoryColor(formData.category),
+            textColor: 'white',
+            reminder: formData.reminder
+        };
+
+        // Thêm vào danh sách thử thách của user
+        addChallenge(newChallenge);
+        
+        // Chuyển hướng đến trang thử thách
+        navigate('/challenges');
+    };
+
+    // Hàm helper để lấy màu dựa trên category
+    const getCategoryColor = (category) => {
+        switch(category) {
+            case 'Sức khỏe':
+                return 'primary';
+            case 'Kỹ năng':
+                return 'secondary';
+            case 'Tinh thần':
+                return 'tertiary';
+            case 'Học tập':
+                return 'accent';
+            default:
+                return 'primary';
+        }
     };
 
     const fadeInUp = {

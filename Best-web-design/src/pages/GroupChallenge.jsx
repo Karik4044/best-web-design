@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function GroupChallenge() {
     return (
@@ -51,9 +52,11 @@ function GroupChallenge() {
                             </div>
                             
                             <div class="mt-8">
-                                <button class="bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors">
-                                    Tạo nhóm thử thách
-                                </button>
+                                <Link to="/create-group-challenge" class="inline-block">
+                                    <button class="bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors">
+                                        Tạo nhóm thử thách
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                         

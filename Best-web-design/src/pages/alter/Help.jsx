@@ -30,7 +30,7 @@ function Help() {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-900 pt-20">
+        <div className="min-h-screen bg-gray-50 pt-20">
             <div className="container mx-auto px-4 py-12">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ function Help() {
                                 }
                             }}
                             style={{
-                                background: "linear-gradient(to right, #FF7F50, #FF9F7F, #FFD700, #3EB489, #87CEEB)",
+                                background: "linear-gradient(to right, #FF7F50, #FF9F7F, #FFD700)",
                                 WebkitBackgroundClip: "text",
                                 backgroundClip: "text",
                                 WebkitTextFillColor: "transparent",
@@ -65,7 +65,7 @@ function Help() {
                         >
                             Trung tâm trợ giúp
                         </motion.h1>
-                        <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Tìm câu trả lời cho các câu hỏi thường gặp và hướng dẫn sử dụng nền tảng của chúng tôi.
                         </p>
                     </div>
@@ -77,10 +77,10 @@ function Help() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
-                                className="bg-gray-800 rounded-lg p-6 shadow-md"
+                                className="bg-white rounded-lg p-6 shadow-lg"
                             >
-                                <h3 className="text-xl font-semibold text-white mb-3">{item.question}</h3>
-                                <p className="text-gray-300">{item.answer}</p>
+                                <h3 className="text-xl font-semibold text-gray-800 mb-3">{item.question}</h3>
+                                <p className="text-gray-600">{item.answer}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -91,13 +91,13 @@ function Help() {
                         transition={{ delay: 0.4 }}
                         className="mt-12 text-center"
                     >
-                        <h2 className="text-2xl font-semibold text-white mb-4">Không tìm thấy câu trả lời?</h2>
-                        <p className="text-gray-300 mb-6">
+                        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Không tìm thấy câu trả lời?</h2>
+                        <p className="text-gray-600 mb-6">
                             Nếu bạn không tìm thấy câu trả lời cho câu hỏi của mình, hãy liên hệ với chúng tôi.
                         </p>
                         <Link to="/contact">
                             <motion.button
-                                className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors"
+                                className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-300"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >

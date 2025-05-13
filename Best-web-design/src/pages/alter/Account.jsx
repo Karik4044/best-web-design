@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { BadgeIcons } from '../../data/badgeIcons';
 import defaultAvatar from '../../assets/fa65411d6c03730a8cb16f0cbf713e0e.jpg';
 import { Link } from 'react-router-dom';
+import { useUser } from '../../context/UserContext';
 
 // Helper: Map badge id to icon component from Badge.jsx
 // You may need to export the icon components from Badge.jsx for this to work.
@@ -16,6 +17,7 @@ const useScroll = () => {
   };
   
 function Account() {
+    const { userChallenges } = useUser();
     const [user, setUser] = useState({
         username: 'John Doe',
         email: 'john@example.com',
@@ -46,7 +48,8 @@ function Account() {
                 color: "accent",
                 bgColor: "accent",
                 textColor: "white"
-            }
+            },
+            ...userChallenges // Thêm các thử thách nhóm từ context
         ],
         badges: [
             {
@@ -263,9 +266,16 @@ function Account() {
                                     <div className="flex justify-between items-start mb-4">
                                         <div>
                                             <h3 className="text-lg font-semibold text-gray-800 mb-1">{challenge.title}</h3>
-                                            <span className={`text-sm px-3 py-1 rounded-full bg-${challenge.bgColor} bg-opacity-10 text-${challenge.color}`}>
-                                                {challenge.category}
-                                            </span>
+                                            <div className="flex items-center space-x-2">
+                                                <span className={`text-sm px-3 py-1 rounded-full bg-${challenge.bgColor} bg-opacity-10 text-${challenge.color}`}>
+                                                    {challenge.category}
+                                                </span>
+                                                {challenge.isGroup && (
+                                                    <span className="text-sm px-3 py-1 rounded-full bg-blue-100 text-blue-600">
+                                                        {challenge.currentMembers}/{challenge.maxMembers} thành viên
+                                                    </span>
+                                                )}
+                                            </div>
                                         </div>
                                         <span className={`text-sm font-medium text-${challenge.color}`}>Còn {challenge.daysLeft} ngày</span>
                                     </div>
@@ -285,16 +295,6 @@ function Account() {
                                     </div>
                                 </motion.div>
                             ))}
-                        </div>
-                        <div className="mt-6 text-center">
-                            <motion.button
-                                className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                onClick={() => navigate('/challenges')}
-                            >
-                                <Link to="/challenges">Xem tất cả thử thách</Link>
-                            </motion.button>
                         </div>
                     </div>
 

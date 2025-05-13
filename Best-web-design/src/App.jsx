@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { UserProvider } from './context/UserContext';
 import Navbar from './components/Navbar';
 import Hero from './pages/Hero';
 import Features from './pages/Features';
@@ -25,6 +26,7 @@ import Policy from './pages/alter/policy';
 import FAQ from './pages/alter/FAQ';
 import './parallax.css';
 import Setting from './pages/alter/setting';
+import CreateGroupChallenge from './pages/alter/creategroupchallenge';
 // ScrollToTop component to scroll to top on route change
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -36,7 +38,7 @@ function ScrollToTop() {
   return null;
 }
 
-function AnimatedRoutes() {
+function AnimatedRoutes({ darkMode }) {
     const location = useLocation();
 
     return (
@@ -46,11 +48,11 @@ function AnimatedRoutes() {
                     path="/"
                     element={
                         <AnimatedPage>
-                            <Hero />
-                            <Features />
-                            <Challenges />
-                            <GroupChallenge />
-                            <CTA />
+                            <Hero darkMode={darkMode} />
+                            <Features darkMode={darkMode} />
+                            <Challenges darkMode={darkMode} />
+                            <GroupChallenge darkMode={darkMode} />
+                            <CTA darkMode={darkMode} />
                         </AnimatedPage>
                     }
                 />
@@ -58,7 +60,7 @@ function AnimatedRoutes() {
                     path="/features" 
                     element={
                         <AnimatedPage>
-                            <Features />
+                            <Features darkMode={darkMode} />
                         </AnimatedPage>
                     } 
                 />
@@ -66,19 +68,19 @@ function AnimatedRoutes() {
                     path="/challenges" 
                     element={
                         <AnimatedPage>
-                            <Challenges />
+                            <Challenges darkMode={darkMode} />
                         </AnimatedPage>
                     } 
                 />
                 <Route 
                     path="/challenges/:id" 
-                    element={<PopupChallenges />} 
+                    element={<PopupChallenges darkMode={darkMode} />} 
                 />
                 <Route 
                     path="/progress" 
                     element={
                         <AnimatedPage>
-                            <Progress />
+                            <Progress darkMode={darkMode} />
                         </AnimatedPage>
                     } 
                 />
@@ -86,7 +88,7 @@ function AnimatedRoutes() {
                     path="/badges" 
                     element={
                         <AnimatedPage>
-                            <Badge />
+                            <Badge darkMode={darkMode} />
                         </AnimatedPage>
                     } 
                 />
@@ -94,7 +96,7 @@ function AnimatedRoutes() {
                     path="/create-challenge" 
                     element={
                         <AnimatedPage>
-                            <CreateChallenge />
+                            <CreateChallenge darkMode={darkMode} />
                         </AnimatedPage>
                     } 
                 />
@@ -102,57 +104,62 @@ function AnimatedRoutes() {
                     path="/group-challenge" 
                     element={
                         <AnimatedPage>
-                            <GroupChallenge />
+                            <GroupChallenge darkMode={darkMode} />
                         </AnimatedPage>
                     } 
                 />
                 <Route path="/account" element={
                     <AnimatedPage>
-                        <Account />
+                        <Account darkMode={darkMode} />
                     </AnimatedPage>
                 } />
                 <Route path="/team" element={
                     <AnimatedPage>
-                        <Team />
+                        <Team darkMode={darkMode} />
                     </AnimatedPage>
                 } />
                 <Route path="/aboutus" element={
                     <AnimatedPage>
-                        <Aboutus />
+                        <Aboutus darkMode={darkMode} />
                     </AnimatedPage>
                 } />
                 <Route path="/contact" element={
                     <AnimatedPage>
-                        <Contact />
+                        <Contact darkMode={darkMode} />
                     </AnimatedPage>
                 } />
                 <Route path="/help" element={
                     <AnimatedPage>
-                        <Help />
+                        <Help darkMode={darkMode} />
                     </AnimatedPage>
                 } />
                 <Route path="/clause" element={
                     <AnimatedPage>
-                        <Clause />
+                        <Clause darkMode={darkMode} />
                     </AnimatedPage>
                 } />
                 <Route path="/policy" element={
                     <AnimatedPage>
-                        <Policy />
+                        <Policy darkMode={darkMode} />
                     </AnimatedPage>
                 } />
                 <Route path="/faq" element={
                     <AnimatedPage>
-                        <FAQ />
+                        <FAQ darkMode={darkMode} />
                     </AnimatedPage>
                 } />
                 <Route path="/setting" element={
                     <AnimatedPage>
-                        <Setting />
+                        <Setting darkMode={darkMode} />
                     </AnimatedPage>
                 } />
-                <Route path="/login" element={<LoginModal />} />
-                <Route path="/register" element={<RegisterModal />} />
+                <Route path="/create-group-challenge" element={
+                    <AnimatedPage>
+                        <CreateGroupChallenge darkMode={darkMode} />
+                    </AnimatedPage>
+                } />
+                <Route path="/login" element={<LoginModal darkMode={darkMode} />} />
+                <Route path="/register" element={<RegisterModal darkMode={darkMode} />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
         </AnimatePresence>
@@ -179,20 +186,22 @@ function App() {
     };
 
     return (
-        <Router>
-            <div className={`min-h-screen flex flex-col ${
-                darkMode 
-                    ? 'bg-dark-bg-primary text-dark-text-primary' 
-                    : 'bg-light-bg-primary text-light-text-primary'
-            } transition-colors duration-300`}>
-                <ScrollToTop />
-                <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-                <main className="flex-grow">
-                    <AnimatedRoutes />
-                </main>
-                <Footer />
-            </div>
-        </Router>
+        <UserProvider>
+            <Router>
+                <div className={`min-h-screen flex flex-col ${
+                    darkMode 
+                        ? 'bg-dark-bg-primary text-dark-text-primary' 
+                        : 'bg-light-bg-primary text-light-text-primary'
+                } transition-colors duration-300`}>
+                    <ScrollToTop />
+                    <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+                    <main className="flex-grow">
+                        <AnimatedRoutes darkMode={darkMode} />
+                    </main>
+                    <Footer darkMode={darkMode} />
+                </div>
+            </Router>
+        </UserProvider>
     );
 }
 

@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import RegisterModal from '../components/RegisterModal';
 import LoginModal from '../components/LoginModal';
 import { createPortal } from 'react-dom';
-import heroVideo from '../videos/Avicii - Lonely Together ft. Rita Ora.mp4';
+import heroVideo from '../videos/Lapwing - Face Tracking Add on.mp4';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -38,6 +38,7 @@ function Hero() {
   const [showSoundMessage, setShowSoundMessage] = useState(false);
   const videoRef = useRef(null);
   const heroRef = useRef(null);
+  const videoContainerRef = useRef(null);
   const { scrollY } = useScroll();
   
   // Hiệu ứng parallax chỉ di chuyển, không phóng to
@@ -65,20 +66,38 @@ function Hero() {
     // Add event listener for custom login change event
     window.addEventListener('loginStatusChange', handleLoginChange);
 
-    // Handle video scaling to avoid black bars
+    // Handle video scaling to fit the hero section perfectly
     const adjustVideo = () => {
-      if (videoRef.current) {
-        const videoRatio = videoRef.current.videoWidth / videoRef.current.videoHeight;
-        const viewportRatio = window.innerWidth / window.innerHeight;
+      if (videoRef.current && heroRef.current && videoContainerRef.current) {
+        const heroWidth = heroRef.current.offsetWidth;
+        const heroHeight = heroRef.current.offsetHeight;
         
-        if (videoRatio > viewportRatio) {
-          // Video is wider than viewport
-          videoRef.current.style.width = "auto";
-          videoRef.current.style.height = "120%";
+        // Set container to match hero dimensions exactly
+        videoContainerRef.current.style.width = `${heroWidth}px`;
+        videoContainerRef.current.style.height = `${heroHeight}px`;
+        
+        // Get video's natural dimensions
+        const videoWidth = videoRef.current.videoWidth;
+        const videoHeight = videoRef.current.videoHeight;
+        
+        // Calculate aspect ratios
+        const videoRatio = videoWidth / videoHeight;
+        const heroRatio = heroWidth / heroHeight;
+        
+        if (videoRatio > heroRatio) {
+          // Video is wider than hero - match height and center horizontally
+          const newWidth = heroHeight * videoRatio;
+          videoRef.current.style.width = `${newWidth}px`;
+          videoRef.current.style.height = '100%';
+          videoRef.current.style.left = `${(heroWidth - newWidth) / 2}px`;
+          videoRef.current.style.top = '0';
         } else {
-          // Video is taller than viewport
-          videoRef.current.style.width = "120%";
-          videoRef.current.style.height = "auto";
+          // Video is taller than hero - match width and center vertically
+          const newHeight = heroWidth / videoRatio;
+          videoRef.current.style.width = '100%';
+          videoRef.current.style.height = `${newHeight}px`;
+          videoRef.current.style.left = '0';
+          videoRef.current.style.top = `${(heroHeight - newHeight) / 2}px`;
         }
       }
     };
@@ -87,6 +106,9 @@ function Hero() {
     if (videoRef.current) {
       videoRef.current.addEventListener('loadedmetadata', adjustVideo);
       window.addEventListener('resize', adjustVideo);
+      
+      // Force adjustment after a short delay to ensure DOM is ready
+      setTimeout(adjustVideo, 100);
     }
 
     return () => {
@@ -165,15 +187,22 @@ function Hero() {
             style={{ 
               y, 
               opacity,
-              height: '120%',
-              width: '120%',
-              left: '-10%',
-              top: '-10%',
-              position: 'absolute'
+              position: 'absolute',
+              width: '100%',
+              height: '100%'
             }} 
             className="z-0"
           >
-            <div className="video-container" style={{ overflow: 'hidden', height: '120%', width: '120%' }}>
+            <div 
+              ref={videoContainerRef}
+              className="video-container" 
+              style={{ 
+                overflow: 'hidden', 
+                position: 'relative',
+                width: '100%',
+                height: '100%'
+              }}
+            >
               <video 
                 ref={videoRef}
                 autoPlay 
@@ -185,9 +214,10 @@ function Hero() {
                 className="video-element"
                 src={heroVideo}
                 style={{
-                  objectFit: 'cover',
-                  width: '120%',
-                  height: '120%'
+                  position: 'absolute',
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
                 }}
               />
             </div>
@@ -196,10 +226,22 @@ function Hero() {
       </div>
 
       {/* Sound Control Button */}
-      <button 
+      <motion.button 
         onClick={toggleMute}
-        className="sound-control"
+        className="absolute bottom-6 right-6 z-[100] bg-white/20 backdrop-blur-md p-3 rounded-full hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '48px',
+          height: '48px'
+        }}
         aria-label={isMuted ? "Bật âm thanh" : "Tắt âm thanh"}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
       >
         {isMuted ? (
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -211,7 +253,7 @@ function Hero() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
           </svg>
         )}
-      </button>
+      </motion.button>
       
       {/* Sound Message */}
       <AnimatePresence>

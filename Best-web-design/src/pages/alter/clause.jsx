@@ -26,7 +26,7 @@ function Clause() {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-900 pt-20">
+        <div className="min-h-screen bg-gray-50 pt-20">
             <div className="container mx-auto px-4 py-12">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ function Clause() {
                                 }
                             }}
                             style={{
-                                background: "linear-gradient(to right, #FF7F50, #FF9F7F, #FFD700, #3EB489, #87CEEB)",
+                                background: "linear-gradient(to right, #FF7F50, #FF9F7F, #FFD700)",
                                 WebkitBackgroundClip: "text",
                                 backgroundClip: "text",
                                 WebkitTextFillColor: "transparent",
@@ -82,7 +82,7 @@ function Clause() {
                                 </defs>
                             </svg>
                         </motion.h1>
-                        <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Vui lòng đọc kỹ các điều khoản và điều kiện sau đây trước khi sử dụng nền tảng của chúng tôi.
                         </p>
                     </div>
@@ -94,10 +94,10 @@ function Clause() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
-                                className="bg-gray-800 rounded-lg p-6 shadow-md"
+                                className="bg-white rounded-lg p-6 shadow-lg"
                             >
-                                <h2 className="text-xl font-semibold text-white mb-4">{section.title}</h2>
-                                <p className="text-gray-300 leading-relaxed">{section.content}</p>
+                                <h2 className="text-xl font-semibold text-gray-800 mb-4">{section.title}</h2>
+                                <p className="text-gray-600 leading-relaxed">{section.content}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -108,11 +108,11 @@ function Clause() {
                         transition={{ delay: 0.6 }}
                         className="mt-12 text-center"
                     >
-                        <p className="text-gray-300 mb-6">
+                        <p className="text-gray-600 mb-6">
                             Nếu bạn có bất kỳ câu hỏi nào về điều khoản sử dụng, vui lòng liên hệ với chúng tôi.
                         </p>
                         <motion.button
-                            className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors"
+                            className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-300"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >

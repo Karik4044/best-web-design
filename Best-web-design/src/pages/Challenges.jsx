@@ -4,6 +4,7 @@ import AnimatedPage from '../animaition/AnimatedPage';
 import ScrollAnimation from '../animaition/ScrollAnimation';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { challenges } from '../data/challenges.jsx';
+import { useUser } from '../context/UserContext';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -33,6 +34,7 @@ function Challenges() {
   const [visibleCards, setVisibleCards] = useState(6);
   const location = useLocation();
   const navigate = useNavigate();
+  const { addChallenge } = useUser();
   
   // Check if we're on the challenges page or home page
   const isChallengePage = location.pathname === '/challenges';
@@ -68,6 +70,17 @@ function Challenges() {
   // Navigate to challenge details
   const handleViewChallengeDetails = (challenge) => {
     navigate(`/challenges/${challenge.id}`, { state: { challenge: getSerializableChallenge(challenge) } });
+  };
+
+  // Handle starting a challenge
+  const handleStartChallenge = (challenge) => {
+    addChallenge(challenge);
+    navigate(`/challenges/${challenge.id}`, { 
+      state: { 
+        challenge: getSerializableChallenge(challenge),
+        action: 'start'
+      } 
+    });
   };
 
   // Helper function to create serializable challenge object
@@ -137,7 +150,7 @@ function Challenges() {
                 Tất cả
               </motion.button>
               <motion.button 
-                className={`px-6 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors text-gray-700`}
+                className={`px-6 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors text-gray-500`}
                 variants={fadeInUp}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -216,18 +229,14 @@ function Challenges() {
                             Xem thêm
                           </motion.button>
                         </Link>
-                        <Link
-                          to={`/challenges/${challenge.id}`}
-                          state={{ challenge: getSerializableChallenge(challenge), action: 'start' }}
+                        <motion.button 
+                          className={`bg-${challenge.color} text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-opacity-90 transition-colors`}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => handleStartChallenge(challenge)}
                         >
-                      <motion.button 
-                        className={`bg-${challenge.color} text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-opacity-90 transition-colors`}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Bắt đầu
-                      </motion.button>
-                        </Link>
+                          Bắt đầu
+                        </motion.button>
                       </div>
                     </div>
                   </div>
@@ -239,7 +248,7 @@ function Challenges() {
           {!isChallengePage && (
           <ScrollAnimation className="text-center mt-12">
               <Link to="/challenges">
-            <button className="bg-white border border-gray-300 text-dark font-medium px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
+            <button className="bg-white border border-gray-300 text-gray-500 font-medium px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
               Xem thêm thử thách
             </button>
               </Link>
