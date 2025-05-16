@@ -27,6 +27,7 @@ import FAQ from './pages/alter/FAQ';
 import './parallax.css';
 import Setting from './pages/alter/setting';
 import CreateGroupChallenge from './pages/alter/creategroupchallenge';
+
 // ScrollToTop component to scroll to top on route change
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -41,6 +42,8 @@ function ScrollToTop() {
 function AnimatedRoutes({ darkMode }) {
     const location = useLocation();
 
+    // Define the routes for the application
+    // Each route is wrapped in an AnimatedPage component for animation effects
     return (
         <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
@@ -166,6 +169,8 @@ function AnimatedRoutes({ darkMode }) {
     );
 }
 
+// Main App component
+// This component sets up the main structure of the application, including the router and dark mode functionality.
 function App() {
     const [darkMode, setDarkMode] = useState(() => {
         const savedMode = localStorage.getItem('darkMode');

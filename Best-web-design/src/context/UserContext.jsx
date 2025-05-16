@@ -1,4 +1,5 @@
 //Quan lý state group challenge của user
+// và danh sách challenge toàn cục 
 import React, { createContext, useState, useContext } from 'react';
 import { challenges } from '../data/challenges.jsx';
 

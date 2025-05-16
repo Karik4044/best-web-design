@@ -2,7 +2,7 @@ export const challenges = [
     // Sức khỏe category - 10 cards
     {
       id: 1,
-      category: 'Sức khỏe',
+      category: 'Sức khỏe', 
       title: 'Tập thể dục mỗi ngày',
       description: 'Dành 15-30 phút mỗi ngày để vận động cơ thể, tăng cường sức khỏe và năng lượng.',
       participants: '2,145 người tham gia',
@@ -10,9 +10,13 @@ export const challenges = [
       duration: '30 ngày',
       color: 'primary',
       icon: (
-        <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-          <path fillRule="evenodd" d="M5.5 17a4.5 4.5 0 01-1.44-8.765 4.5 4.5 0 018.302-3.046 3.5 3.5 0 014.504 4.272A4 4 0 0115 17H5.5zm3.75-2.75a.75.75 0 001.5 0V9.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.1 0l-3.25 3.5a.75.75 0 101.1 1.02l1.95-2.1v4.59z" clipRule="evenodd"></path>
-        </svg>
+      <svg className="w-16 h-16 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.70001 7.75H4.25001C3.97387 7.75 3.75001 7.97386 3.75001 8.25V15.75C3.75001 16.0261 3.97387 16.25 4.25001 16.25H6.70001C6.97615 16.25 7.20001 16.0261 7.20001 15.75V8.25C7.20001 7.97386 6.97615 7.75 6.70001 7.75Z" fill="currentColor"/>
+        <path d="M19.75 7.75H17.3C17.0239 7.75 16.8 7.97386 16.8 8.25V15.75C16.8 16.0261 17.0239 16.25 17.3 16.25H19.75C20.0262 16.25 20.25 16.0261 20.25 15.75V8.25C20.25 7.97386 20.0262 7.75 19.75 7.75Z" fill="currentColor"/>
+        <path d="M7.20001 10.75H3.75001V13.25H7.20001V10.75Z" fill="currentColor"/>
+        <path d="M20.25 10.75H16.8V13.25H20.25V10.75Z" fill="currentColor"/>
+        <path d="M16.8 11.25H7.20001V12.75H16.8V11.25Z" fill="currentColor"/>
+      </svg>
       )
     },
     {
@@ -25,9 +29,8 @@ export const challenges = [
       duration: '30 ngày',
       color: 'primary',
       icon: (
-        <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M10 2a.75.75 0 01.75.75v5.59l1.95-2.1a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0L6.2 7.26a.75.75 0 111.1-1.02l1.95 2.1V2.75A.75.75 0 0110 2z"></path>
-          <path d="M5.22 14.78a.75.75 0 001.06 0l7-7a.75.75 0 00-1.06-1.06l-7 7a.75.75 0 000 1.06z"></path>
+        <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M4 2h16l-1.5 18.5a2 2 0 0 1-1.99 1.5h-9.02a2 2 0 0 1-1.99-1.5L4 2zm2.2 2l1.3 15h9l1.3-15H6.2z" />
         </svg>
       )
     },
@@ -151,7 +154,7 @@ export const challenges = [
         </svg>
       )
     },
-    
+    // Rest of the code remains the same
     // Kỹ năng category - 10 cards
     {
       id: 11,
@@ -378,8 +381,9 @@ export const challenges = [
       duration: '14 ngày',
       color: 'tertiary',
       icon: (
-        <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-          <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
+        <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/>
+          <path fill="currentColor" d="M23 1L1 23" stroke="currentColor" strokeWidth="2"/>
         </svg>
       )
     },
@@ -517,10 +521,9 @@ export const challenges = [
       duration: '30 ngày',
       color: 'accent',
       icon: (
-        <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-          <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd"></path>
-        </svg>
+        <svg className="w-16 h-16 text-white" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+          <path fill="currentColor" d="M7.127 22.562l-7.127 1.438 1.438-7.128 5.689 5.69zm1.414-1.414l11.228-11.225-5.69-5.692-11.227 11.227 5.689 5.69zm9.768-21.148l-2.816 2.817 5.691 5.691 2.816-2.819-5.691-5.689z"/>
+        </svg> 
       )
     },
     {
@@ -610,9 +613,9 @@ export const challenges = [
       duration: '30 ngày',
       color: 'accent',
       icon: (
-        <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11.414 10l1.293 1.293a1 1 0 001.414 0z" clipRule="evenodd"></path>
-        </svg>
+        <svg className="w-16 h-16 text-white" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+          <path fill="currentColor" d="M15 4C8.925 4 4 8.925 4 15s4.925 11 11 11 11-4.925 11-11S21.075 4 15 4zm0 2c4.963 0 9 4.037 9 9s-4.037 9-9 9-9-4.037-9-9 4.037-9 9-9zm0 2c-.552 0-1 .448-1 1v5.5c0 .27.11.515.287.692l3.5 3.5c.39.39 1.023.39 1.414 0 .39-.39.39-1.023 0-1.414L16 14.086V9c0-.552-.448-1-1-1z"/>
+        </svg>      
       )
     } 
 ]; 
