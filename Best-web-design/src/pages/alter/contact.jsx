@@ -125,7 +125,7 @@ function Contact() {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-gray-800">Email</h3>
-                                        <p className="text-gray-600">Muahahahah@acend.com</p>
+                                        <p className="text-gray-600">Muahahahah@ascend.com</p>
                                     </div>
                                 </div>
 
@@ -165,10 +165,10 @@ function Contact() {
                             </div>
                             <div className="mt-16 flex ">
                                 <img src={logo} alt="Acend" className="w-12 h-12 mr-2 mb-4" />
-                                <h3 className="font-semibold text-gray-800 mb-4 mt-1 text-4xl">Acend</h3>
+                                <h3 className="font-semibold text-gray-800 mb-4 mt-1 text-4xl">Ascend</h3>
                             </div>
                             <div className="mt-2">
-                                <p className="text-gray-600 text-sm">© 2025 Acend. Tất cả quyền được bảo lưu.</p>
+                                <p className="text-gray-600 text-sm">© 2025 Ascend. Tất cả quyền được bảo lưu.</p>
                             </div>
                         </motion.div>
 

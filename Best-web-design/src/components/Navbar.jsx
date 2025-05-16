@@ -70,7 +70,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
             <div className="flex items-center space-x-2 ml-20">
                 <img src={logo} alt="Logo" className="w-8 h-8" />
                 <span className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-dark'} ml-20 md:ml-20`}>
-                    <Link to="/">Acend</Link>
+                    <Link to="/">Ascend</Link>
                 </span>
             </div>
             

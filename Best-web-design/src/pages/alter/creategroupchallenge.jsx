@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaUsers, FaClock, FaLock, FaUnlock, FaInfoCircle } from 'react-icons/fa';
-import { useUser } from '../../context/UserContext';
+import { useUser } from '../../context/UserContext';    //Quan lý state group challenge của user
 import { useNavigate } from 'react-router-dom';
 
 function CreateGroupChallenge({ darkMode }) {

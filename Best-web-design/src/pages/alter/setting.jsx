@@ -18,9 +18,6 @@ function Setting() {
         localStorage.setItem('darkMode', darkMode);
     }, [darkMode]);
 
-    const toggleDarkMode = () => {
-        setDarkMode(prev => !prev);
-    };
 
     const toggleNotifications = () => {
         setNotifications(prev => !prev);
@@ -41,30 +38,6 @@ function Setting() {
                 <h1 className="text-3xl font-bold mb-8 text-gray-800 dark:text-white">Cài đặt</h1>
                 
                 <div className="space-y-6">
-                    {/* Dark Mode Setting */}
-                    <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                        <div className="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-3 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                            </svg>
-                            <div>
-                                <h3 className="text-lg font-medium text-gray-900 dark:text-white">Chế độ tối</h3>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">Chuyển đổi giữa chế độ sáng và tối</p>
-                            </div>
-                        </div>
-                        <button
-                            onClick={toggleDarkMode}
-                            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${
-                                darkMode ? 'bg-indigo-600' : 'bg-gray-200'
-                            }`}
-                        >
-                            <span
-                                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                                    darkMode ? 'translate-x-6' : 'translate-x-1'
-                                }`}
-                            />
-                        </button>
-                    </div>
 
                     {/* Notifications Setting */}
                     <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">

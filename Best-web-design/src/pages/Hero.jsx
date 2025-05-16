@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import RegisterModal from '../components/RegisterModal';
 import LoginModal from '../components/LoginModal';
 import { createPortal } from 'react-dom';
-import heroVideo from '../videos/Lapwing - Face Tracking Add on.mp4';
+import heroVideo from '../videos/RUN, Cinematic fitness video.mp4';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -35,7 +35,7 @@ function Hero() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [showSoundMessage, setShowSoundMessage] = useState(false);
+  const [showSoundMessage] = useState(false);
   const videoRef = useRef(null);
   const heroRef = useRef(null);
   const videoContainerRef = useRef(null);
@@ -121,6 +121,7 @@ function Hero() {
     };
   }, []);
 
+  //Xử lý button âm thanh
   const toggleMute = () => {
     if (videoRef.current) {
       videoRef.current.muted = !videoRef.current.muted;
@@ -136,6 +137,9 @@ function Hero() {
     }
   };
 
+  // Xử lý khi người dùng nhấn nút "Bắt đầu ngay"
+  // Nếu đã đăng nhập, chuyển hướng đến trang thử thách
+  // Nếu chưa đăng nhập, mở modal đăng ký
   const handleStartClick = () => {
     if (isLoggedIn) {
       navigate('/challenges');
@@ -144,16 +148,30 @@ function Hero() {
     }
   };
 
+  // Xử lý đóng modal
+  // Đóng cả hai modal nếu một trong hai modal đang mở
+  // Nếu không có modal nào mở, không làm gì cả
+  // Điều này giúp tránh việc đóng modal không cần thiết
   const handleCloseModal = () => {
     setIsRegisterModalOpen(false);
     setIsLoginModalOpen(false);
   };
 
+  // Chuyển đổi giữa modal đăng ký và đăng nhập
+  // Khi người dùng nhấn nút "Đăng nhập" trong modal đăng ký
+  // hoặc "Đăng ký" trong modal đăng nhập
+  // Điều này giúp người dùng dễ dàng chuyển đổi giữa hai modal mà không cần phải đóng modal hiện tại
+  // và mở modal khác
   const handleSwitchToLogin = () => {
     setIsRegisterModalOpen(false);
     setIsLoginModalOpen(true);
   };
 
+  // Chuyển đổi giữa modal đăng ký và đăng nhập
+  // Khi người dùng nhấn nút "Đăng ký" trong modal đăng nhập
+  // hoặc "Đăng nhập" trong modal đăng ký
+  // Điều này giúp người dùng dễ dàng chuyển đổi giữa hai modal mà không cần phải đóng modal hiện tại
+  // và mở modal khác
   const handleSwitchToRegister = () => {
     setIsLoginModalOpen(false);
     setIsRegisterModalOpen(true);
@@ -287,7 +305,7 @@ function Hero() {
               >
                 <motion.div className="flex flex-col mt-10" variants={fadeInUp}>
                   <h1 className="text-3xl md:text-5xl font-bold mb-4">Một ngày một bước – bạn sẽ đi xa hơn bạn nghĩ</h1>
-                  <p className="text-lg md:text-xl mb-8">Nền tảng giúp bạn xây dựng thói quen tích cực và phát triển bản thân qua các thử thách 30 ngày.</p>
+                  <p className="text-lg md:text-xl mb-8">Ascend - Nền tảng giúp bạn xây dựng thói quen tích cực và phát triển bản thân qua các thử thách 30 ngày. </p>
                   <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                     <motion.button 
                       whileHover={{ scale: 1.05 }}
@@ -357,7 +375,7 @@ function Hero() {
                   {/* App UI */}
                   <rect x="40" y="60" width="240" height="50" rx="10" fill="#FF7F50"/>
                   <image href="/src/assets/be22adc6-9678-4cd0-8c8f-1416c25ec1ec_removalai_preview.png" x="55" y="73" width="24" height="24" />
-                  <text x="85" y="90" fill="white" fontFamily="Montserrat" fontSize="16" fontWeight="600">Acend</text>
+                  <text x="85" y="90" fill="white" fontFamily="Montserrat" fontSize="16" fontWeight="600">Ascend</text>
                   
                   <rect x="40" y="130" width="240" height="80" rx="10" fill="white" stroke="#E2E8F0" strokeWidth="2"/>
                   <text x="60" y="160" fill="#2D3748" fontFamily="Montserrat" fontSize="14" fontWeight="600">Tập thể dục mỗi ngày</text>

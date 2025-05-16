@@ -6,36 +6,21 @@ function Team() {
     const teamMembers = [
         {
             name: 'Huỳnh Ngọc Bảo Trường',
-            role: 'Bochi-con',
+            role: 'Front-end, Design',
             image: '/src/assets/489909405_1230454181839521_2184527119995905431_n.jpg',
-            bio: 'CEO-Founder Công ty trách nghiệm hữu hạn 1 mình tôi',
-            social: {
-                twitter: '#',
-                instagram: '#',
-                facebook: '#'
-            }
+            bio: 'Đam mê lập trình và thiết kế. Luôn tìm tòi học hỏi để phát triển kỹ năng mới.',
         },
         {
             name: 'Võ Văn Khánh',
-            role: 'Cái bang',
+            role: 'Front-end, Design',
             image: '/src/assets/fa65411d6c03730a8cb16f0cbf713e0e.jpg',
-            bio: 'Đẹp trai vô đối, thích gái đít bự, con trai Yilong Ma',
-            social: {
-                twitter: '#',
-                instagram: '#',
-                facebook: '#'
-            }
+            bio: 'Niềm đam mê lớn về công nghệ. Thích khám phá và áp dụng các xu hướng mới trong lĩnh vực web.',
         },
         {
             name: 'Đinh Văn Sang',
-            role: 'Bang Chủ',
-            image: '/src/assets/73367019-d6ef-4722-9fa0-0255fafae8fa.jpg',
-            bio: 'Đẹp gái khoai to, Master pha thuốc lắc, Bang chủ các bang',
-            social: {
-                twitter: '#',
-                instagram: '#',
-                facebook: '#'
-            }
+            role: 'Front-end, Design',
+            image: '/src/assets/446847a4-8a18-4829-9172-d80b65e61940.jpg',
+            bio: 'Năng động và sáng tạo. Luôn nỗ lực học hỏi để trở thành một nhà phát triển web chuyên nghiệp.',
         },
     ];
 
