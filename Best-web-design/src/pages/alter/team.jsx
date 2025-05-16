@@ -19,7 +19,7 @@ function Team() {
         {
             name: 'Đinh Văn Sang',
             role: 'Front-end, Design',
-            image: '/src/assets/446847a4-8a18-4829-9172-d80b65e61940.jpg',
+            image: '/src/assets/484e616e1ac7ee115bc567a1c5ee1607.jpg',
             bio: 'Năng động và sáng tạo. Luôn nỗ lực học hỏi để trở thành một nhà phát triển web chuyên nghiệp.',
         },
     ];

@@ -47,7 +47,7 @@ function aboutus() {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
-                        Acend - Nền tảng giúp bạn xây dựng thói quen tích cực và phát triển bản thân
+                        Ascend - Nền tảng giúp bạn xây dựng thói quen tích cực và phát triển bản thân
                     </motion.p>
                 </div>
 
