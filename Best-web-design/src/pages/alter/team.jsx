@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-function Team() {
+function Team() { 
     const teamMembers = [
         {
             name: 'Huỳnh Ngọc Bảo Trường',
