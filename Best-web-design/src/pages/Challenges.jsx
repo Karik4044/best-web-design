@@ -67,11 +67,6 @@ function Challenges() {
     setVisibleCards(isChallengePage ? filteredChallenges.length : 6);
   }, [activeFilter, isChallengePage, filteredChallenges.length]);
 
-  // Navigate to challenge details
-  const handleViewChallengeDetails = (challenge) => {
-    navigate(`/challenges/${challenge.id}`, { state: { challenge: getSerializableChallenge(challenge) } });
-  };
-
   // Handle starting a challenge
   const handleStartChallenge = (challenge) => {
     addChallenge(challenge);

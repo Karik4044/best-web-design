@@ -7,7 +7,7 @@ function Team() {
         {
             name: 'Huỳnh Ngọc Bảo Trường',
             role: 'Front-end, Design',
-            image: '/src/assets/489909405_1230454181839521_2184527119995905431_n.jpg',
+            image: '/src/assets/bc6404c90756b25449af30b2d57fec142.jpg',
             bio: 'Đam mê lập trình và thiết kế. Luôn tìm tòi học hỏi để phát triển kỹ năng mới.',
         },
         {
@@ -19,7 +19,7 @@ function Team() {
         {
             name: 'Đinh Văn Sang',
             role: 'Front-end, Design',
-            image: '/src/assets/484e616e1ac7ee115bc567a1c5ee1607.jpg',
+            image: '/src/assets/98705af86e49726241b221877636e7563.jpg',
             bio: 'Năng động và sáng tạo. Luôn nỗ lực học hỏi để trở thành một nhà phát triển web chuyên nghiệp.',
         },
     ];
